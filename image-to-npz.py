@@ -51,5 +51,4 @@ X_train = training_data.T[0]
 y_train = training_data.T[1]
 
 # save to file
-np.savez("./veggies-dataset.npz", X_train=X_train)
-np.savez("./veggies-label.npz", y_train=y_train)
+np.savez("./veggies-dataset.npz", X_train=X_train, y_train=y_train)
