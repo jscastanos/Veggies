@@ -50,5 +50,8 @@ training_data = np.array(training_data, dtype="object")
 X_train = training_data.T[0]
 y_train = training_data.T[1]
 
+X_train = np.array([np.array(val) for val in X_train])
+y_train = np.array([np.array(val) for val in y_train])
+
 # save to file
 np.savez("./veggies-dataset.npz", X_train=X_train, y_train=y_train)
