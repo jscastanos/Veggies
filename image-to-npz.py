@@ -38,7 +38,7 @@ def getTrainingData(image_size, categories):
 
 
 categories = getCategories()
-training_data = getTrainingData(200, categories)
+training_data = getTrainingData(250, categories)
 
 # shuffle to avoid bias
 random.shuffle(training_data)
@@ -50,8 +50,6 @@ training_data = np.array(training_data, dtype="object")
 X_train = training_data.T[0]
 y_train = training_data.T[1]
 
-X_train = np.array([np.array(val) for val in X_train])
-y_train = np.array([np.array(val) for val in y_train])
 
 # save to file
 np.savez("./veggies-dataset.npz", X_train=X_train, y_train=y_train)
