@@ -4,6 +4,7 @@ import random
 
 import cv2
 import numpy as np
+import pandas as pd
 
 DATADIR = "./images"
 
@@ -56,13 +57,5 @@ y_train = training_data.T[1]
 np.savez("./veggies-dataset.npz", X_train=X_train, y_train=y_train)
 
 # save categories to file
-header = ['index', 'category']
-
-with open('veggies-category.csv', 'w', encoding='UTF8', newline='') as f:
-    writer = csv.writer(f)
-
-    writer.writerow(header)
-
-    # write data
-    for category in categories:
-        writer.writerow([categories.index(category), category])
+df = pd.DataFrame(categories, columns=['category'])
+df.to_csv('veggies-category.csv', index=False)
