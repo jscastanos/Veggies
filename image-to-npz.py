@@ -27,12 +27,12 @@ def getTrainingData(image_size, categories):
         label = categories.index(category)
 
         for img in os.listdir(path):
-            # read image
+            # image path
             file = os.path.join(path, img)
-            # convert to grayscale to reduce data size
-            grayImage = cv2.imread(file, cv2.IMREAD_GRAYSCALE)
+            # read image
+            image = cv2.imread(file, cv2.IMREAD_COLOR)
             # resize image to have the same dimension
-            newImage = cv2.resize(grayImage, (image_size, image_size))
+            newImage = cv2.resize(image, (image_size, image_size))
             # add to array
             data.append([newImage, label])
     return data
