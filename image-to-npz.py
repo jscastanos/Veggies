@@ -1,3 +1,4 @@
+import csv
 import os
 import random
 
@@ -51,5 +52,17 @@ X_train = training_data.T[0]
 y_train = training_data.T[1]
 
 
-# save to file
+# save dataset to file
 np.savez("./veggies-dataset.npz", X_train=X_train, y_train=y_train)
+
+# save categories to file
+header = ['index', 'category']
+
+with open('veggies-category.csv', 'w', encoding='UTF8', newline='') as f:
+    writer = csv.writer(f)
+
+    writer.writerow(header)
+
+    # write data
+    for category in categories:
+        writer.writerow([categories.index(category), category])
