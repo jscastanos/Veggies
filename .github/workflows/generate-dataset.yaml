@@ -4,8 +4,8 @@ on:
     branches:
       - main
     paths:
-      - image-to.npz-py
-      - images/*
+      - 'image-to.npz-py'
+      - 'images/**'
 
 jobs:
   generate-dataset:
